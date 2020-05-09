@@ -1,40 +1,39 @@
+/* General styling
+__________________________________________________________________________________________ 
+__________________________________________________________________________________________ 
+__________________________________________________________________________________________ */
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
+  text-decoration: none;
+  overscroll-behavior: contain;
 }
 
 body {
   font-family: "Raleway", sans-serif;
   line-height: 1.6;
-}
-
-.container {
-  height: 3300px;
-  margin: 0px;
-  padding: 0rem;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  background-color: rgb(62, 131, 114);
-}
-
-a {
-  color: rgb(102, 255, 255);
-  text-decoration: none;
-  display: inline-block;
-}
-
-a:hover {
-  color: rgb(239, 255, 169);
-  text-decoration: none;
-  cursor: pointer;
+  background-color: rgb(39, 37, 37);
 }
 
 li {
   list-style-type: none;
 }
+
+p {
+  display: block;
+  white-space: normal;
+}
+
+/* Homepage styling
+__________________________________________________________________________________________ 
+__________________________________________________________________________________________ 
+__________________________________________________________________________________________ */
+
+/* Navbar and Footer
+__________________________________________________________________________________________ */
 
 nav {
   z-index: 1;
@@ -46,7 +45,7 @@ nav {
   grid-template-columns: 1fr 4fr;
   grid-column-gap: 100px;
   align-items: center;
-  position: fixed; /* Set the navbar to fixed position */
+  position: fixed;
 }
 
 nav h1 {
@@ -65,6 +64,67 @@ nav ul {
   justify-content: space-between;
 }
 
+nav a,
+footer a {
+  color: rgb(102, 255, 255);
+  display: inline-block;
+}
+
+nav a:hover,
+footer a:hover {
+  color: rgb(239, 255, 169);
+  cursor: pointer;
+}
+
+footer {
+  z-index: 2;
+  height: 30vh;
+  width: 100%;
+  padding: 30px 30%;
+  background: rgb(39, 37, 37);
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-column-gap: 100px;
+  align-items: center;
+}
+
+footer ul {
+  display: flex;
+  justify-content: center;
+}
+
+footer ul li {
+  font-size: 22px;
+  margin: 0 20px 0;
+}
+
+footer:last-child,
+#wtf {
+  font-size: 0.8rem;
+  text-align: center;
+  color: rgb(104, 98, 98);
+  white-space: normal;
+}
+
+@media only screen and (max-width: 1000px) {
+  nav {
+    background-color: #ffffff;
+  }
+}
+
+/* container - size of the whole website
+__________________________________________________________________________________________ */
+
+.container {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  background-color: rgb(202, 241, 202);
+}
+
+/* main - defines that everything starts below the navbar
+__________________________________________________________________________________________ */
+
 main {
   padding-top: 70px;
   height: 100%;
@@ -73,9 +133,12 @@ main {
   justify-content: flex-start;
 }
 
+/* "Intro" Section - animated
+__________________________________________________________________________________________ */
+
 .intro {
   line-height: 2;
-  height: 100%;
+  height: 65vh;
   width: auto;
   display: flex;
   justify-content: center;
@@ -83,9 +146,9 @@ main {
   padding: 10%;
   flex-direction: column;
   background-image: url("images/me-green.jpg");
-  background-position: right; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
-  background-size: cover; /* Resize the background image to cover the entire container */
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: cover;
   background-attachment: fixed;
   animation: animatedIntroImg 1s ease-out;
 }
@@ -100,51 +163,6 @@ main {
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-.topic {
-  min-height: 500px;
-  padding: 60px 80px 0px;
-  background-color: rgb(202, 241, 202);
-  display: grid;
-  grid-template-columns: 230px 1fr 1fr 1fr 1fr;
-  grid-gap: 20px;
-  white-space: nowrap;
-}
-
-footer {
-  height: 30vh;
-  width: 100%;
-  padding: 30px 40%;
-  background: rgb(39, 37, 37);
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-column-gap: 100px;
-  align-items: center;
-}
-
-footer ul {
-  display: flex;
-  justify-content: space-around;
-}
-
-footer ul li {
-  font-size: 22px;
-}
-
-#about div {
-  white-space: normal;
-  grid-column-start: 2;
-  grid-column-end: 5;
-  padding-top: 10px;
-  padding-left: 25px;
-}
-
-#contact div {
-  grid-column-start: 2;
-  grid-column-end: 5;
-  padding-top: 10px;
-  padding-left: 25px;
 }
 
 .arrow {
@@ -162,40 +180,48 @@ footer ul li {
   -webkit-transform: rotate(45deg);
 }
 
-@media only screen and (max-width: 955px) {
-  nav {
-    background-color: #ffffff;
-  }
-}
-
 @keyframes animatedIntroImg {
   from {
-    background-position: 95% 0;
-    opacity: 50%;
+    height: 0vh;
+    background-position: 80%;
+    opacity: 80%;
   }
   to {
-    background-position: 100% 100%;
+    height: 65vh;
+    background-position: 100%;
     opacity: 100%;
   }
 }
 
 @keyframes animatedIntroTxt {
-  10% {
+  from {
     transform: translateY(-10px);
     opacity: 0;
   }
-  50% {
+  to {
     transform: translateY(0px);
     opacity: 100%;
   }
 }
-#design,
-#art {
-  margin: 0 0px;
+
+/* ".topic" - class of the sections below the intro: #design, #art, #about, #clients, #contact
+__________________________________________________________________________________________ */
+
+.topic {
+  min-height: 500px;
+  padding: 60px 80px 0px;
+  background-color: rgb(229, 248, 229);
+  display: grid;
+  grid-template-columns: 230px 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
+  white-space: nowrap;
 }
+
+/* "Design" and "Art" Sections
+__________________________________________________________________________________________ */
+
 #design div,
 #art div {
-  /*background-color: rgb(60, 109, 117);*/
   grid-column-start: 2;
   grid-column-end: 8;
   display: flex;
@@ -218,24 +244,54 @@ footer ul li {
   transform: scale(0.95);
 }
 
-#clients div {
-  background-color: rgb(202, 241, 202);
-  grid-column-start: 2;
-  grid-column-end: 8;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  flex-basis: 30%;
-  flex-wrap: wrap;
-  background-position: top left; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
-  background-size: 60%; /* Resize the background image to cover the entire container */
+#design #box #a {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 #design #box div:hover,
 #art #box div:hover {
   background-color: rgb(255, 255, 255);
-  animation: CardEffect 0.3s ease-in-out forwards;
+  animation: CardEffect 0.2s ease-in-out forwards;
+}
+
+.topic a:link {
+  color: black;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
+
+.topic a #caption {
+  text-transform: uppercase;
+  line-height: 2;
+}
+
+.topic a h2 {
+  line-height: 1.3;
+}
+
+.topic a p {
+  line-height: 1.3;
+}
+
+.topic a:visited {
+  color: tomato;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
+
+.topic a:hover {
+  color: midnightblue;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
+
+.topic a:active {
+  color: midnightblue;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
 }
 
 @keyframes CardEffect {
@@ -245,6 +301,25 @@ footer ul li {
   to {
     transform: scale(1);
   }
+}
+
+/* "Clients" Section
+__________________________________________________________________________________________ */
+
+#clients div {
+  background-color: rgb(229, 248, 229);
+  grid-column-start: 2;
+  grid-column-end: 8;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding-top: 10px;
+  padding-left: 25px;
+  flex-basis: 30%;
+  flex-wrap: wrap;
+  background-position: top left; /* optional center */
+  background-repeat: no-repeat;
+  background-size: 60%; /* optional "cover" */
 }
 
 #clients div:nth-child(1) {
@@ -260,7 +335,7 @@ footer ul li {
 }
 
 #clients div:nth-child(4) {
-  background-image: url(images/dt.png);
+  background-image: url(images/sektgar.jpg);
   background-size: 40%;
 }
 
@@ -278,11 +353,146 @@ footer ul li {
 }
 
 #clients div:nth-child(8) {
-  background-image: url(images/sektgar.jpg);
+  background-image: url(images/dt.png);
   background-size: 50%;
 }
 
 #clients div:nth-child(9) {
   background-image: url(images/teatrwielki.jpg);
   background-size: 50%;
+}
+
+/* "About" Section
+__________________________________________________________________________________________ */
+
+#about div {
+  white-space: normal;
+  grid-column-start: 2;
+  grid-column-end: 5;
+  padding-top: 10px;
+  padding-left: 25px;
+}
+
+/* "Contact" Section
+__________________________________________________________________________________________ */
+
+#contact div {
+  grid-column-start: 2;
+  grid-column-end: 5;
+  padding-top: 10px;
+  padding-left: 25px;
+}
+
+/* Subpage Specific Styling
+__________________________________________________________________________________________ 
+__________________________________________________________________________________________ 
+__________________________________________________________________________________________ */
+
+.subpage {
+  display: grid;
+  grid-template-columns: 20vw 1fr;
+  grid-gap: 20px;
+  white-space: normal;
+  overflow: hidden;
+  margin-bottom: 130px;
+}
+
+.subpage .navigation {
+  padding: 60px 3vw 120px;
+  background-color: rgb(202, 241, 202);
+  line-height: 1.2;
+  /*display: inline-flexbox;
+  position: fixed;*/
+}
+
+.subpage .navigation ul li {
+  line-height: 4;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.subpage .navigation ul li li {
+  margin-left: 2vw;
+  margin-bottom: 1.2rem;
+  line-height: 1.6;
+  list-style-type: none;
+  text-transform: capitalize;
+}
+
+.subpage .navigation ul a {
+  color: black;
+}
+.subpage .navigation ul a:hover {
+  color: tomato;
+}
+
+.subpage .description {
+  /*grid-column-start: 2;
+  grid-column-end: 3;*/
+  max-width: 800px;
+  padding: 60px 30px 0 0;
+  background-color: rgb(202, 241, 202);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.description #title {
+  padding-bottom: 70px;
+}
+
+.description #title h1 {
+  font-size: 3rem;
+  line-height: 1.3;
+}
+
+.description #title h2 {
+  line-height: 1.6;
+}
+
+.description #title p {
+  line-height: 2;
+}
+
+.description #bodytext ul li {
+  margin-bottom: 0.5rem;
+}
+
+.description #bodytext #emphasis {
+  border: solid black;
+  border-width: 0 0 0 5px;
+  margin: 50px;
+  padding-left: 20px;
+  font-size: 1.4rem;
+}
+
+.description #bodytext h2,
+.description #bodytext h3 {
+  line-height: 2.5;
+}
+
+.description #bodytext p {
+  margin-bottom: 20px;
+}
+
+.description img,
+.description video {
+  max-width: 1000px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+@media screen and (max-width: 1000px) {
+  .description img {
+    max-width: 100%;
+  }
+}
+
+#backtotop {
+  color: rgb(255, 255, 255);
+  margin-top: 0px;
+  position: fixed;
+  font-size: 2rem;
+  opacity: 100%;
+  mix-blend-mode: exclusion;
 }
