@@ -277,13 +277,13 @@ ________________________________________________________________________________
 }
 
 .topic a:visited {
-  color: tomato;
+  color: grey;
   -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
 }
 
 .topic a:hover {
-  color: midnightblue;
+  color: tomato;
   -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
 }
