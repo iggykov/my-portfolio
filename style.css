@@ -127,7 +127,7 @@ ________________________________________________________________________________
   transition: opacity 0.4s ease;
 }
 
-/* Show menu on click in .menu-items - DOESNT WORK YET*/
+/* Show menu on click in .menu-items - DOESNT WORK YET*/ /*
 .menu-wrap .menu-items.hide ~ .menu {
   visibility: visible;
 }
@@ -141,6 +141,7 @@ ________________________________________________________________________________
   opacity: 1;
   transition: opacity 0.4s ease;
 }
+*/
 
 /* -- */
 .menu-wrap .menu {
