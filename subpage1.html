@@ -5,12 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>✦ Iga Kowalczuk ✦ Portfolio ✦</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+  />
     <script
       src="https://kit.fontawesome.com/a9ca6d53e9.js"
       crossorigin="anonymous"
     ></script>
   </head>
   <body>
+
+    <div class="menu-wrap">
+      <input type="checkbox" class="toggler">
+      <div class="hamburger"><div></div></div>
+      <div class="menu">
+        <div>
+          <div>
+            <ul>
+              <li><a href="#design" target="anker">UX/UI&nbspDesign</a></li>
+              <li><a href="#art" target="anker">Art&nbspDirection</a></li>
+              <li><a href="#about" target="anker">About&nbspme</a></li>
+              <li><a href="#contact" target="anker">Contact</a></li>
+              <li><a href="https://drive.google.com/open?id=1zxhAQO5DecJMwqIdz49EqSjBkjgl4X6p" target="_blank"
+                >CV</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <nav>
       <h1><a href="index.html">Iga Kowalczuk</a></h1>
       <ul class="nav-ul">
@@ -31,6 +55,7 @@
         
         
         <div class="navigation">
+          <div>
               <h1>All Projects</h1>
               <ul>
                 <li>UX/UI Design
@@ -49,7 +74,7 @@
                 </li>
               </ul>
               <a id="backtotop" href="#top"><i class="fas fa-angle-double-up"></i></a>
-          
+            </div>
         </div>
 
         <div class="description">
@@ -204,20 +229,20 @@
                   <li>🛠 I would redesign the “more” screen to add a social network platform: add the “search” section there, move “Menage profiles” to Settings, change “account” icon from single person to multiple to avoid confusion with user profile icon etc.</li>
                   
                   <p>
-                    <img src="images/01_Netflix_Slides/further.png" alt="">
+                    <img class="darken" src="images/01_Netflix_Slides/further.png" alt="">
                   </p>
                   <li>🛠 I would add settings with consideration to users privacy: detailed control over what content and activity is shared publicly and if the profile is visible or not.</li>
                   <p>
-                    <img src="images/01_Netflix_Slides/UserFlow_unpublish.png" alt="">
+                    <img class="multiply" src="images/01_Netflix_Slides/UserFlow_unpublish.png" alt="">
                   </p>
                   <li>🛠 
                     This is how a flow for Searching & following other profiles (including profiles from the same account) could look like: other users can be just followed or befriended, profiles show “match rating” in %(like titles now) according to similarities in content preference.
                   </li>
                   <p>
-                    <img src="images/01_Netflix_Slides/UserFlow_search.png" alt="">
+                    <img class="multiply" src="images/01_Netflix_Slides/UserFlow_search.png" alt="">
                   </p>
                   <p>
-                    <img src="images/01_Netflix_Slides/UserFlow_search.png" alt="">
+                    <img class="multiply" src="images/01_Netflix_Slides/UserFlow_search.png" alt="">
                   </p>
 
                 </ul>
@@ -260,41 +285,42 @@
     
 
     
-      <footer>
-        <p>
-          <ul class="foot-ul">
-            <li>
-              <a href="https://medium.com/@igakowalczuk" target="_blank"
-                ><i class="fab fa-medium-m"></i
-              ></a>
-            </li>
-            <li>
-              <a href="https://www.linkedin.com/in/igakowalczuk/" target="_blank"
-                ><i class="fab fa-linkedin-in"></i
-              ></a>
-            </li>
-            <li>
-              <a href="https://dribbble.com/iggykov" target="_blank"
-                ><i class="fab fa-dribbble"></i
-              ></a>
-            </li>
-            <li>
-              <a href="https://www.behance.net/iggykov" target="_blank"
-                ><i class="fab fa-behance"></i
-              ></a>
-            </li>
-            <li>
-              <a href="https://drive.google.com/open?id=1zxhAQO5DecJMwqIdz49EqSjBkjgl4X6p" target="_blank"
-                ><i class="fas fa-file"></i></a>
-            </li>
-          </ul>
-        </p>
-          <p id=wtf>
-          © 2020, Iga Kowalczuk, All Rights Reserved.<br>
-          Coded with ♥︎ in HTML and CSS by Iga Kowalczuk.<br>
-          (last update - April 2020)
-          </p>
-      </footer>
+    <footer>
+        
+      <ul class="foot-ul">
+        <li>
+          <a href="https://medium.com/@igakowalczuk" target="_blank"
+            ><i class="fab fa-medium-m"></i
+          ></a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/igakowalczuk/" target="_blank"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+        </li>
+        <li>
+          <a href="https://dribbble.com/iggykov" target="_blank"
+            ><i class="fab fa-dribbble"></i
+          ></a>
+        </li>
+        <li>
+          <a href="https://www.behance.net/iggykov" target="_blank"
+            ><i class="fab fa-behance"></i
+          ></a>
+        </li>
+        <li>
+          <a href="https://drive.google.com/open?id=1zxhAQO5DecJMwqIdz49EqSjBkjgl4X6p" target="_blank"
+            ><i class="fas fa-file"></i></a>
+        </li>
+      </ul>
+    
+      <div id="copyrights">
+        © 2020, Iga Kowalczuk, All Rights Reserved.<br>
+        Coded with ♥︎ in HTML and CSS by Iga Kowalczuk.<br>
+        (last update - April 2020)
+      </div>
+    
+  </footer>
     </div>
   </body>
 </html>

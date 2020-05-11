@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>✦ Iga Kowalczuk ✦ Portfolio ✦</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+  />
     <script
       src="https://kit.fontawesome.com/a9ca6d53e9.js"
       crossorigin="anonymous"
@@ -14,13 +18,31 @@
 
   <body>
 
+    <div class="menu-wrap">
+      <div class="hamburger"><div></div></div>
+      <div class="menu">
+        <div>
+          <div>
+            <ul>
+              <li><a href="#design" target="anker" class="menu-items">UX/UI&nbspDesign</a></li>
+              <li><a href="#art" target="anker" class="menu-items">Art&nbspDirection</a></li>
+              <li><a href="#about" target="anker" class="menu-items">About&nbspme</a></li>
+              <li><a href="#contact" target="anker" class="menu-items">Contact</a></li>
+              <li><a href="https://drive.google.com/open?id=1zxhAQO5DecJMwqIdz49EqSjBkjgl4X6p" target="_blank"
+                >CV</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <nav>
       <h1><a href="index.html">Iga Kowalczuk</a></h1>
       <ul class="nav-ul">
-        <li><a href="#design">UX/UI Design</a></li>
-        <li><a href="#art">Art Direction</a></li>
-        <li><a href="#about">About me</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#design" target="anker">UX/UI&nbspDesign</a></li>
+        <li><a href="#art" target="anker">Art&nbspDirection</a></li>
+        <li><a href="#about" target="anker">About&nbspme</a></li>
+        <li><a href="#contact" target="anker">Contact</a></li>
         <li><a href="https://drive.google.com/open?id=1zxhAQO5DecJMwqIdz49EqSjBkjgl4X6p" target="_blank"
           >CV</a></li>
       </ul>
@@ -28,24 +50,28 @@
 
     <div class="container">
       <main>
-        <div class="intro" id="intro">
-          <div><h2>Hi. I am Iga Kowalczuk.</h2></div>
-          <h1>Welcome to my design portfolio.</h1>
+        <div class="intro" class="animate__animated animate__fadeIn">
           <div>
-            <a href="#design"><i class="arrow down"></i></i></a>
+          <div><h2 class="animate__animated animate__fadeInDown">Hi. I am Iga Kowalczuk.</h2></div>
+          <h1 class="animate__animated animate__fadeInDown">Welcome to my design portfolio.*</h1>
+          <h3 class="animate__animated animate__fadeInDown">*I coded it myself.</h3>
+          <div class="animate__animated animate__bounce">
+            <a href="#design"><i class="arrow down"></i></a>
           </div>
+        </div>
           
         </div>
 
         <div class="topic" id="design">
-
+          
           <h1>UX/UI Design</h1>
           <div id="box">
 
             <div id="a">
               <a href="subpage1.html">
                 <p id=caption>Add a Feature</p>
-                <h2>Netflix's Social Features</h2>
+                <h2><ul><li>Netflix's&nbspSocial
+                </li> <li>Features</li></h2>
                 <br>
                 <p>Mobile App Design</p>
               </a>
@@ -82,7 +108,6 @@
         </div>
 
         <div class="topic" id="art">
-
           <h1>Art Direction</h1>
           <div id="box">
 
@@ -118,6 +143,7 @@
         </div>
 
         <div class="topic" id="about">
+          
           <h1>About me</h1>
           <div>
             <h2>MY CHARACTER TYPE (ENFJ-A)</h2>
@@ -151,6 +177,7 @@
           </div>
         </div>
         <div class="topic" id="clients">
+          
           <h1>Clients</h1>
           <div id="box">
             <div></div>
@@ -165,49 +192,52 @@
           </div>
         </div>
         <div class="topic" id="contact">
+          
           <h1>Contact</h1>
           <div>
-            Telephone: +49 (0) 176 99 79 18 32 <br />
+            Phone: +49 (0) 176 99 79 18 32 <br />
             Email: igakowalczuk@gmail.com
           </div>
         </div>
       </main>
       <footer>
-      <p>
-        <ul class="foot-ul">
-          <li>
-            <a href="https://medium.com/@igakowalczuk" target="_blank"
-              ><i class="fab fa-medium-m"></i
-            ></a>
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/in/igakowalczuk/" target="_blank"
-              ><i class="fab fa-linkedin-in"></i
-            ></a>
-          </li>
-          <li>
-            <a href="https://dribbble.com/iggykov" target="_blank"
-              ><i class="fab fa-dribbble"></i
-            ></a>
-          </li>
-          <li>
-            <a href="https://www.behance.net/iggykov" target="_blank"
-              ><i class="fab fa-behance"></i
-            ></a>
-          </li>
-          <li>
-            <a href="https://drive.google.com/open?id=1zxhAQO5DecJMwqIdz49EqSjBkjgl4X6p" target="_blank"
-              ><i class="fas fa-file"></i></a>
-          </li>
-        </ul>
-      </p>
-      <p>
-        © 2020, Iga Kowalczuk, All Rights Reserved.<br>
-        Coded with ♥︎ in HTML and CSS by Iga Kowalczuk.<br>
-        (last update - April 2020)
-      </p>
+        
+          <ul class="foot-ul">
+            <li>
+              <a href="https://medium.com/@igakowalczuk" target="_blank"
+                ><i class="fab fa-medium-m"></i
+              ></a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/igakowalczuk/" target="_blank"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </li>
+            <li>
+              <a href="https://dribbble.com/iggykov" target="_blank"
+                ><i class="fab fa-dribbble"></i
+              ></a>
+            </li>
+            <li>
+              <a href="https://www.behance.net/iggykov" target="_blank"
+                ><i class="fab fa-behance"></i
+              ></a>
+            </li>
+            <li>
+              <a href="https://drive.google.com/open?id=1zxhAQO5DecJMwqIdz49EqSjBkjgl4X6p" target="_blank"
+                ><i class="fas fa-file"></i></a>
+            </li>
+          </ul>
+        
+          <div id="copyrights">
+            © 2020, Iga Kowalczuk, All Rights Reserved.<br>
+            Coded with ♥︎ in HTML and CSS by Iga Kowalczuk.<br>
+            (last update - April 2020)
+          </div>
+        
       </footer>
     </div>
+    <script src="main.js"></script>
   </body>
 </html>
 

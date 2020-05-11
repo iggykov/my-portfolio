@@ -3,6 +3,14 @@ ________________________________________________________________________________
 __________________________________________________________________________________________ 
 __________________________________________________________________________________________ */
 
+:root {
+  --grey: rgb(39, 37, 37);
+  --green: rgb(202, 241, 202);
+  --turquois: rgb(102, 255, 255);
+  --yellow: rgb(224, 255, 86);
+  --menu-speed: 1s;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -13,9 +21,9 @@ ________________________________________________________________________________
 }
 
 body {
-  font-family: "Raleway", sans-serif;
+  font-family: "Raleway", "Helvetica", sans-serif;
   line-height: 1.6;
-  background-color: rgb(39, 37, 37);
+  background-color: var(--grey);
 }
 
 li {
@@ -32,6 +40,159 @@ ________________________________________________________________________________
 __________________________________________________________________________________________ 
 __________________________________________________________________________________________ */
 
+/* Hamburger Menu (not visible)
+__________________________________________________________________________________________ */
+
+.menu-wrap {
+  visibility: hidden; /* unhides in media query */
+  position: fixed;
+  width: 100vw;
+  display: flex;
+  justify-content: flex-end;
+  z-index: 2;
+}
+
+.menu-wrap .hamburger {
+  grid-column-start: 2;
+  z-index: 2;
+  width: 70px;
+  height: 70px;
+  padding: 1rem;
+  background-color: var(--grey);
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  cursor: pointer;
+  transition: all 1s ease-in;
+}
+
+/* Hamburger Middle Line */
+.menu-wrap .hamburger > div {
+  position: relative;
+  width: 100%;
+  height: 2px;
+  background-color: var(--yellow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.1s ease-in;
+}
+
+/* Top & Bottom Lines */
+.menu-wrap .hamburger > div:before,
+.menu-wrap .hamburger > div:after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 2px;
+  background: inherit;
+}
+
+.menu-wrap .hamburger > div:before {
+  transform: translateY(-10px);
+}
+
+.menu-wrap .hamburger > div:after {
+  transform: translateY(10px);
+}
+
+/* BUTTON ANIMATION 1 */
+.menu-wrap .hamburger.open > div {
+  background: transparent;
+}
+
+.menu-wrap .hamburger.open > div:before {
+  transform: rotate(45deg);
+  background: var(--turquois);
+}
+
+.menu-wrap .hamburger.open > div:after {
+  transform: rotate(-45deg);
+  background: var(--turquois);
+}
+
+/* Show menu on click in .hamburger*/
+.menu-wrap .hamburger.open ~ .menu {
+  visibility: visible;
+}
+
+.menu-wrap .hamburger.open ~ .menu > div {
+  transform: translateY(0px);
+  transition-duration: var(--menu-speed);
+}
+
+.menu-wrap .hamburger.open ~ .menu > div > div {
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+/* Show menu on click in .menu-items - DOESNT WORK YET*/
+.menu-wrap .menu-items.hide ~ .menu {
+  visibility: visible;
+}
+
+.menu-wrap .menu-items.hide ~ .menu > div {
+  transform: translateY(0px);
+  transition-duration: var(--menu-speed);
+}
+
+.menu-wrap .menu-items.hide ~ .menu > div > div {
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+/* -- */
+.menu-wrap .menu {
+  position: fixed;
+  width: 100%;
+  visibility: hidden;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-wrap .menu > div {
+  background-color: var(--grey);
+  opacity: 97%;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-200vh);
+  transition: all 1s ease;
+}
+
+.menu-wrap .menu > div > div {
+  text-align: center;
+  max-width: 90vw;
+  max-height: 100vh;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.menu-wrap .menu > div > div > ul > li {
+  list-style: none;
+  color: var(--turquois);
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+
+.menu-wrap .menu > div > div > ul > li > a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.4s ease;
+}
+
+.menu-wrap .menu > div > div > ul > li > a:active {
+  color: var(--yellow);
+  text-decoration: none;
+  transition: color 0.4s ease;
+}
+
 /* Navbar and Footer
 __________________________________________________________________________________________ */
 
@@ -40,7 +201,7 @@ nav {
   height: 70px;
   width: 100%;
   padding: 15px 20px 30px;
-  background: rgb(39, 37, 37);
+  background: var(--grey);
   display: grid;
   grid-template-columns: 1fr 4fr;
   grid-column-gap: 100px;
@@ -50,11 +211,7 @@ nav {
 
 nav h1 {
   min-width: 180px;
-  background: -webkit-linear-gradient(
-    40deg,
-    rgb(102, 255, 255),
-    rgb(224, 255, 86)
-  );
+  background: -webkit-linear-gradient(40deg, var(--turquois), var(--yellow));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -66,50 +223,46 @@ nav ul {
 
 nav a,
 footer a {
-  color: rgb(102, 255, 255);
+  color: var(--turquois);
   display: inline-block;
+  transition: color 0.3s ease-in;
 }
 
 nav a:hover,
 footer a:hover {
-  color: rgb(239, 255, 169);
+  color: var(--yellow);
   cursor: pointer;
 }
 
 footer {
-  z-index: 2;
-  height: 30vh;
-  width: 100%;
-  padding: 30px 30%;
-  background: rgb(39, 37, 37);
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-column-gap: 100px;
+  z-index: 1;
+  height: auto;
+  width: 100vw;
+  padding: 3vw 0 3vh;
+  background: var(--grey);
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
 
 footer ul {
   display: flex;
-  justify-content: center;
+  flex-direction: row;
 }
 
 footer ul li {
-  font-size: 22px;
-  margin: 0 20px 0;
+  font-size: 1.6vw;
+  margin: 0 1.6vw 0;
 }
 
-footer:last-child,
-#wtf {
+footer div {
+  margin: 1.6vw 0;
+  width: 100%;
   font-size: 0.8rem;
+  justify-self: start;
   text-align: center;
   color: rgb(104, 98, 98);
   white-space: normal;
-}
-
-@media only screen and (max-width: 1000px) {
-  nav {
-    background-color: #ffffff;
-  }
 }
 
 /* container - size of the whole website
@@ -119,14 +272,14 @@ ________________________________________________________________________________
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
-  background-color: rgb(202, 241, 202);
+  background-color: var(--green);
 }
 
 /* main - defines that everything starts below the navbar
 __________________________________________________________________________________________ */
 
 main {
-  padding-top: 70px;
+  margin-top: 70px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -136,43 +289,65 @@ main {
 /* "Intro" Section - animated
 __________________________________________________________________________________________ */
 
-.intro {
-  line-height: 2;
+main .intro {
+  position: relative;
+  line-height: 1.3;
   height: 65vh;
   width: auto;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding: 10%;
   flex-direction: column;
+}
+
+.intro::before {
+  content: "";
+  width: 100%;
+  height: 65vh;
+  position: absolute;
   background-image: url("images/me-green.jpg");
-  background-position: right;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  animation: animatedIntroImg 1s ease-out;
+  mix-blend-mode: normal;
+  z-index: 0;
+  animation: animatedIntroImg 2s ease-out forwards;
 }
 
-.intro div,
+.intro h2,
+.intro h1,
+.intro h3 {
+  z-index: 1;
+  color: white;
+  animation-duration: 4s;
+  margin-left: 10vh;
+}
+
 .intro h1 {
-  animation: animatedIntroTxt 3s ease-out;
-  background: -webkit-linear-gradient(
-    40deg,
-    rgb(102, 255, 255),
-    rgb(224, 255, 86)
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-size: 3rem;
+}
+
+.intro h2 {
+  margin-bottom: 0.5rem;
+}
+
+.intro h3 {
+  font-weight: lighter;
+  font-size: 1rem;
+  line-height: 1rem;
+  margin-top: 1rem;
 }
 
 .arrow {
   width: 20px;
   height: 20px;
-  border: solid rgb(102, 255, 255);
+  border: solid white;
   border-width: 0 2px 2px 0;
   display: inline-block;
   padding: 0;
   margin: 10px;
+  margin-left: 11vh;
+  animation: arrowFadeIn 4s forwards ease-in;
 }
 
 .down {
@@ -182,24 +357,20 @@ ________________________________________________________________________________
 
 @keyframes animatedIntroImg {
   from {
-    height: 0vh;
-    background-position: 80%;
+    background-position: 80% 70px;
     opacity: 80%;
   }
   to {
-    height: 65vh;
-    background-position: 100%;
+    background-position: 100% 70px;
     opacity: 100%;
   }
 }
 
-@keyframes animatedIntroTxt {
+@keyframes arrowFadeIn {
   from {
-    transform: translateY(-10px);
-    opacity: 0;
+    opacity: 0%;
   }
   to {
-    transform: translateY(0px);
     opacity: 100%;
   }
 }
@@ -213,9 +384,25 @@ ________________________________________________________________________________
   background-color: rgb(229, 248, 229);
   display: grid;
   grid-template-columns: 230px 1fr 1fr 1fr 1fr;
-  grid-gap: 20px;
+  grid-gap: 1vw;
   white-space: nowrap;
+  overflow: hidden;
 }
+
+.topic h1 {
+  padding-bottom: 0.5rem;
+}
+
+/*
+.topic h1:before {
+  content: "anker";
+  display: block;
+  width: 10px;
+  height: 10px;
+  top: -50px;
+  color: rgb(255, 0, 0);
+  z-index: 0;
+}*/
 
 /* "Design" and "Art" Sections
 __________________________________________________________________________________________ */
@@ -234,7 +421,8 @@ ________________________________________________________________________________
 #art #box div {
   white-space: normal;
   background-color: #ffffff;
-  width: 300px;
+  width: 20vw;
+  min-width: 10vw;
   padding: 30px;
   display: flex;
   justify-content: center;
@@ -306,60 +494,67 @@ ________________________________________________________________________________
 /* "Clients" Section
 __________________________________________________________________________________________ */
 
-#clients div {
-  background-color: rgb(229, 248, 229);
+#clients #box {
   grid-column-start: 2;
-  grid-column-end: 8;
+  grid-column-end: 6;
   display: flex;
+  align-items: flex-start;
+  margin: 0;
   flex-direction: row;
-  justify-content: flex-start;
+  flex-flow: row wrap;
   padding-top: 10px;
   padding-left: 25px;
-  flex-basis: 30%;
-  flex-wrap: wrap;
-  background-position: top left; /* optional center */
-  background-repeat: no-repeat;
-  background-size: 60%; /* optional "cover" */
+  grid-gap: 3vw;
+  justify-content: left;
 }
 
-#clients div:nth-child(1) {
+#clients #box div {
+  margin: 0;
+  width: 18vw;
+  height: 10vw;
+  background-repeat: no-repeat;
+  background-size: 10vw;
+}
+
+#clients #box div:nth-child(1) {
   background-image: url(images/bcg.png);
 }
 
-#clients div:nth-child(2) {
+#clients #box div:nth-child(2) {
   background-image: url(images/bcgdv.png);
 }
 
-#clients div:nth-child(3) {
+#clients #box div:nth-child(3) {
   background-image: url(images/google.png);
 }
 
-#clients div:nth-child(4) {
-  background-image: url(images/sektgar.jpg);
-  background-size: 40%;
+#clients #box div:nth-child(4) {
+  background-image: url(images/betahaus.png);
+  background-size: 12vw;
 }
 
-#clients div:nth-child(5) {
+#clients #box div:nth-child(5) {
   background-image: url(images/emarsys-logo.png);
 }
 
-#clients div:nth-child(6) {
-  background-image: url(images/betahaus.jpg);
+#clients #box div:nth-child(6) {
+  background-image: url(images/sektgar.png);
+  background-size: 12vw;
 }
 
-#clients div:nth-child(7) {
-  background-image: url(images/ppt.jpg);
-  background-size: 40%;
+#clients #box div:nth-child(7) {
+  background-image: url(images/ppt.png);
+  background-size: 8vw;
 }
 
-#clients div:nth-child(8) {
+#clients #box div:nth-child(8) {
   background-image: url(images/dt.png);
-  background-size: 50%;
+  background-size: 12vw;
 }
 
-#clients div:nth-child(9) {
-  background-image: url(images/teatrwielki.jpg);
-  background-size: 50%;
+#clients #box div:nth-child(9) {
+  background-image: url(images/teatrwielki.png);
+  background-size: 12vw;
 }
 
 /* "About" Section
@@ -391,7 +586,7 @@ ________________________________________________________________________________
 .subpage {
   display: grid;
   grid-template-columns: 20vw 1fr;
-  grid-gap: 20px;
+  grid-gap: 1vw;
   white-space: normal;
   overflow: hidden;
   margin-bottom: 130px;
@@ -399,7 +594,7 @@ ________________________________________________________________________________
 
 .subpage .navigation {
   padding: 60px 3vw 120px;
-  background-color: rgb(202, 241, 202);
+  background-color: var(--green);
   line-height: 1.2;
   /*display: inline-flexbox;
   position: fixed;*/
@@ -431,7 +626,7 @@ ________________________________________________________________________________
   grid-column-end: 3;*/
   max-width: 800px;
   padding: 60px 30px 0 0;
-  background-color: rgb(202, 241, 202);
+  background-color: var(--green);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -482,17 +677,194 @@ ________________________________________________________________________________
   margin-bottom: 30px;
 }
 
-@media screen and (max-width: 1000px) {
-  .description img {
-    max-width: 100%;
-  }
-}
-
 #backtotop {
   color: rgb(255, 255, 255);
   margin-top: 0px;
   position: fixed;
-  font-size: 2rem;
+  font-size: 1.3rem;
   opacity: 100%;
   mix-blend-mode: exclusion;
+}
+
+.multiply {
+  mix-blend-mode: multiply;
+}
+.darken {
+  mix-blend-mode: darken;
+}
+
+#anker {
+  height: 30px;
+}
+
+@media screen and (max-width: 1000px) {
+  /* hompage */
+  .topic {
+    min-height: initial;
+    padding: 5vw 5vw 0px;
+    background-color: rgb(229, 248, 229);
+    display: initial;
+  }
+
+  #design div,
+  #art div {
+    margin: 0;
+    min-width: 30%;
+  }
+
+  #design #box div,
+  #art #box div {
+    width: 30vw;
+    min-width: 8vw;
+    height: 30vh;
+    min-height: 8vh;
+    margin: 0;
+    display: grid;
+  }
+
+  #clients #box {
+    grid-column-start: 2;
+    grid-column-end: 6;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    flex-direction: row;
+    flex-flow: row wrap;
+    padding-top: 10px;
+    padding-left: 25px;
+    grid-gap: 6vw;
+    justify-content: left;
+  }
+
+  #clients #box div {
+    margin: 0;
+    width: 20vw;
+    height: 10vw;
+    background-repeat: no-repeat;
+    background-size: 17vw;
+  }
+
+  /* image in subpage smaller */
+  .description img {
+    max-width: 100%;
+  }
+
+  #contact #box {
+    min-height: 120px;
+    display: initial;
+  }
+
+  #contact div {
+    min-height: 20vh;
+  }
+  footer ul li {
+    font-size: 2vh;
+    margin: 0 2vh 0;
+  }
+
+  footer div {
+    margin: 2vh 0;
+    width: 100%;
+    font-size: 0.8rem;
+    justify-self: start;
+    text-align: center;
+    color: rgb(104, 98, 98);
+    white-space: normal;
+  }
+}
+
+@media screen and (max-width: 777px) {
+  .menu-wrap {
+    visibility: visible;
+  }
+  nav ul {
+    visibility: hidden;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .intro h1 {
+    font-size: 2rem;
+  }
+
+  .intro h2 {
+    font-size: 1rem;
+    margin-top: 1rem;
+  }
+
+  .intro h3 {
+    font-size: 1rem;
+    margin-top: 1rem;
+  }
+
+  .intro h2,
+  .intro h1,
+  .intro h3 {
+    margin-left: 5vh;
+  }
+
+  .description img {
+    max-width: 100%;
+  }
+  .topic {
+    min-height: 200px;
+    padding: 4vw 4vw 0px;
+    background-color: rgb(229, 248, 229);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+  }
+
+  #clients #box {
+    grid-column-start: 2;
+    grid-column-end: 6;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    flex-direction: row;
+    flex-flow: row wrap;
+    padding-top: 0px;
+    padding-left: 0px;
+    grid-gap: 3vw;
+    justify-content: left;
+  }
+
+  #clients #box div {
+    margin: 0;
+    width: 30vw;
+    height: 10vw;
+    background-repeat: no-repeat;
+    background-size: 18vw;
+  }
+
+  #design div,
+  #art div {
+    flex-direction: column;
+  }
+
+  #design #box div:hover,
+  #art #box div:hover {
+    background-color: rgb(255, 255, 255);
+    animation: none;
+  }
+
+  #clients div,
+  #about div,
+  #contact div {
+    padding-top: 0px;
+    padding-left: 0px;
+  }
+
+  #design #box div,
+  #art #box div {
+    margin: 1vh 0 0;
+    width: 100%;
+    height: 100%;
+    transform: scale(1);
+  }
+
+  #contact div {
+    font-size: 15px;
+  }
 }
